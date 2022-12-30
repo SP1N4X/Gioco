@@ -1,0 +1,373 @@
+[gd_scene load_steps=38 format=2]
+
+[ext_resource path="res://Player/PlayerHealth/Image/heartIcon.png" type="Texture" id=1]
+[ext_resource path="res://Player/PlayerHealth/Script/PlayerHealthScript.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=28]
+resource_name = "0.5H Damage"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 6, 5, 6, 5, 6 ]
+}
+
+[sub_resource type="Animation" id=39]
+resource_name = "0.5H Idle "
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5 ]
+}
+
+[sub_resource type="Animation" id=62]
+resource_name = "0H Damage"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 6 ]
+}
+
+[sub_resource type="Animation" id=63]
+resource_name = "0H Idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 6 ]
+}
+
+[sub_resource type="Animation" id=29]
+resource_name = "1.5H Damage"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 6, 3, 6, 3, 6 ]
+}
+
+[sub_resource type="Animation" id=40]
+resource_name = "1.5H Idle "
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+
+[sub_resource type="Animation" id=30]
+resource_name = "1H Damage "
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 6, 4, 6, 4, 6 ]
+}
+
+[sub_resource type="Animation" id=41]
+resource_name = "1H Idle "
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+
+[sub_resource type="Animation" id=31]
+resource_name = "2.5H Damage"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 6, 1, 6, 1, 6 ]
+}
+
+[sub_resource type="Animation" id=42]
+resource_name = "2.5H Idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=32]
+resource_name = "2H Damage"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 6, 2, 6, 2, 6 ]
+}
+
+[sub_resource type="Animation" id=43]
+resource_name = "2H Idle "
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "3H Damage"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 6, 0, 6, 0 ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "3H Idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=64]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 6 ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=44]
+animation = "3H Damage"
+
+[sub_resource type="AnimationNodeAnimation" id=45]
+animation = "2.5H Damage"
+
+[sub_resource type="AnimationNodeAnimation" id=46]
+animation = "2H Damage"
+
+[sub_resource type="AnimationNodeAnimation" id=47]
+animation = "1.5H Damage"
+
+[sub_resource type="AnimationNodeAnimation" id=48]
+animation = "1H Damage "
+
+[sub_resource type="AnimationNodeAnimation" id=49]
+animation = "0.5H Damage"
+
+[sub_resource type="AnimationNodeAnimation" id=65]
+animation = "0H Damage"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=50]
+blend_point_0/node = SubResource( 44 )
+blend_point_0/pos = 3.0
+blend_point_1/node = SubResource( 45 )
+blend_point_1/pos = 2.5
+blend_point_2/node = SubResource( 46 )
+blend_point_2/pos = 2.0
+blend_point_3/node = SubResource( 47 )
+blend_point_3/pos = 1.5
+blend_point_4/node = SubResource( 48 )
+blend_point_4/pos = 1.0
+blend_point_5/node = SubResource( 49 )
+blend_point_5/pos = 0.5
+blend_point_6/node = SubResource( 65 )
+blend_point_6/pos = 0.0
+max_space = 4.0
+
+[sub_resource type="AnimationNodeAnimation" id=51]
+animation = "3H Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=52]
+animation = "2.5H Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=53]
+animation = "2H Idle "
+
+[sub_resource type="AnimationNodeAnimation" id=54]
+animation = "1.5H Idle "
+
+[sub_resource type="AnimationNodeAnimation" id=55]
+animation = "1H Idle "
+
+[sub_resource type="AnimationNodeAnimation" id=56]
+animation = "0.5H Idle "
+
+[sub_resource type="AnimationNodeAnimation" id=66]
+animation = "0H Idle"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=57]
+blend_point_0/node = SubResource( 51 )
+blend_point_0/pos = 3.0
+blend_point_1/node = SubResource( 52 )
+blend_point_1/pos = 2.5
+blend_point_2/node = SubResource( 53 )
+blend_point_2/pos = 2.0
+blend_point_3/node = SubResource( 54 )
+blend_point_3/pos = 1.5
+blend_point_4/node = SubResource( 55 )
+blend_point_4/pos = 1.0
+blend_point_5/node = SubResource( 56 )
+blend_point_5/pos = 0.5
+blend_point_6/node = SubResource( 66 )
+blend_point_6/pos = 0.0
+max_space = 4.0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=60]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=61]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachine" id=58]
+states/DamageHeart/node = SubResource( 50 )
+states/DamageHeart/position = Vector2( 636.333, 74.1111 )
+states/IdleHeart/node = SubResource( 57 )
+states/IdleHeart/position = Vector2( 389.667, 73.6667 )
+transitions = [ "IdleHeart", "DamageHeart", SubResource( 60 ), "DamageHeart", "IdleHeart", SubResource( 61 ) ]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=59]
+
+[node name="HeartIcon" type="Sprite"]
+position = Vector2( 8, -12 )
+scale = Vector2( 0.382353, 0.382353 )
+texture = ExtResource( 1 )
+vframes = 7
+frame = 6
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/0.5H Damage" = SubResource( 28 )
+"anims/0.5H Idle " = SubResource( 39 )
+"anims/0H Damage" = SubResource( 62 )
+"anims/0H Idle" = SubResource( 63 )
+"anims/1.5H Damage" = SubResource( 29 )
+"anims/1.5H Idle " = SubResource( 40 )
+"anims/1H Damage " = SubResource( 30 )
+"anims/1H Idle " = SubResource( 41 )
+"anims/2.5H Damage" = SubResource( 31 )
+"anims/2.5H Idle" = SubResource( 42 )
+"anims/2H Damage" = SubResource( 32 )
+"anims/2H Idle " = SubResource( 43 )
+"anims/3H Damage" = SubResource( 1 )
+"anims/3H Idle" = SubResource( 15 )
+anims/RESET = SubResource( 64 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 58 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 59 )
+parameters/DamageHeart/blend_position = 3.0
+parameters/IdleHeart/blend_position = 3.0
