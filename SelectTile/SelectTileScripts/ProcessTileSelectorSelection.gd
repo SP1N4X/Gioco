@@ -96,7 +96,15 @@ func PathAndAttack(PlayerPosition, EnemyPosition):
 	var path = TileMapNode.getPath(PlayerPosition, EnemyPosition)
 	if path.size() <= Player.Stamina:
 		taskComplete = false
-		Player.attack(path, Enemy)
+		Player.attackStamina(path, Enemy)
+		yield(Player, 'Complete')
+		ResetObstacle()
+		ResetSelection()
+		Parent.turnSwitch()
+		taskComplete = true
+	elif Player.Magic > 0:
+		taskComplete = false
+		Player.attackMagic(Enemy)
 		yield(Player, 'Complete')
 		ResetObstacle()
 		ResetSelection()
