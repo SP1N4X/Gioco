@@ -5,6 +5,8 @@ signal Complete
 export var Health : float = 3
 export var Strength : float = 1
 export var Stamina : float = 4
+export var Magic : float = 1
+
 
 onready var TileMapNode = get_owner().get_node("TileMap")
 
@@ -13,9 +15,8 @@ onready var ProcessAttack = AttackPlayer.new(self)
 onready var ProcessAnimation = PlayerAnimation.new(self)
 onready var globalFunction = GlobalFunction.new(self)
 
-onready var Group = GlobalFunction.Get_Group(self) 
-
 func _ready():
+	var Group = GlobalFunction.Get_Group(self)
 	if Group == "GroupPlayer":
 		Set_asPlayer()
 	if Group == "GroupEnemy":
@@ -30,15 +31,21 @@ func move(pathArray):
 	yield(ProcessMoviment, "Complete")
 	emit_signal('Complete')
 
-func attack(pathArray, Enemy):
-	ProcessAttack.AttackTo(pathArray, Strength, Enemy)
+func attackStamina(pathArray, Enemy):
+	ProcessAttack.StaminaAttackTo(pathArray, Strength, Enemy)
+	yield(ProcessAttack, "Complete")
+	emit_signal('Complete')
+
+func attackMagic(Enemy):
+	Magic -= 1
+	ProcessAttack.MagicAttackTo(Strength, Enemy)
 	yield(ProcessAttack, "Complete")
 	emit_signal('Complete')
 
 func dead():
 	ProcessAnimation.animationDead()
 	yield(ProcessAnimation, "Complete")
-	globalFunction.Remove_FromGroup(self, Group)
+	globalFunction.Remove_FromGroup(self, GlobalFunction.Get_Group(self))
 	emit_signal("Complete")
 	Set_asTile()
 	self.queue_free()
