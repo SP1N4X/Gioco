@@ -7,7 +7,6 @@ export var Strength : float = 1
 export var Stamina : float = 4
 export var Magic : float = 1
 
-
 onready var TileMapNode = get_owner().get_node("TileMap")
 
 onready var ProcessMoviment = MovimentPlayer.new(self)
@@ -15,13 +14,17 @@ onready var ProcessAttack = AttackPlayer.new(self)
 onready var ProcessAnimation = PlayerAnimation.new(self)
 onready var globalFunction = GlobalFunction.new(self)
 
+onready var Group
+
 func _ready():
-	var Group = GlobalFunction.Get_Group(self)
+	print("PlayerReady")
+	Group = GlobalFunction.Get_Group(self)
 	if Group == "GroupPlayer":
 		Set_asPlayer()
 	if Group == "GroupEnemy":
 		Set_asEnemy()
 	Set_asObstacle()
+	print(self, "Ready")
 
 func _process(delta):
 	ProcessMoviment._process(delta)

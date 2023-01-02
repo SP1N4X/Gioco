@@ -10,3 +10,7 @@ func beginAnimation(damage):
 	$AnimationTree.set("parameters/DamageHeart/blend_position", nextHealth)
 	$AnimationTree.set("parameters/IdleHeart/blend_position", nextHealth)
 	animationMode.travel("DamageHeart")
+
+func SetHeart(Health):
+	$AnimationTree.set("parameters/DamageHeart/blend_position", Health)
+	$AnimationTree.set("parameters/IdleHeart/blend_position", Health)

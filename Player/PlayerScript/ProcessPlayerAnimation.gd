@@ -16,6 +16,7 @@ func _init(parent):
 	animationPlayer = Parent.get_node("AnimationPlayer")
 	animationHealth = Parent.get_node("HeartIcon")
 	animationMode = animationTree.get("parameters/playback")
+	animationHealth.SetHeart(Parent.Health)
 
 func animationAttack(enemyPosition, Position):
 	var dir = (enemyPosition - Position)/16

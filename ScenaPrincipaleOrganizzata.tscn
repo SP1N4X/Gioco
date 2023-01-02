@@ -74,6 +74,7 @@ position = Vector2( 176, 32 )
 
 [node name="Player4" parent="YSort" groups=["GroupEnemy"] instance=ExtResource( 1 )]
 position = Vector2( 176, 48 )
+Health = 1.5
 
 [node name="TileSelector" parent="." instance=ExtResource( 4 )]
 position = Vector2( 112, 64 )
@@ -85,6 +86,17 @@ margin_top = 64.0
 margin_right = 215.0
 margin_bottom = 126.0
 text = "!!Player WIN!!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TurnTo" type="Label" parent="."]
+margin_left = 240.0
+margin_right = 327.0
+margin_bottom = 14.0
+text = "Blue"
 align = 1
 valign = 1
 __meta__ = {

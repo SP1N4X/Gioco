@@ -1,11 +1,18 @@
 extends Node2D
 
-onready var infoDisplayed = false 
+var display = false
 
 func DisplayInfo(Player):
 	$Vita.text = str(Player.Health)
 	$Forza.text = str(Player.Strength)
 	$Stamina.text = str(Player.Stamina)
+	$Magia.text = str(Player.Magic)
 	
-	if !infoDisplayed:
-		self.visible = true
+	if !display:
+		self.set_visible(true)
+		display = true
+
+func UnDisplayInfo():
+	if display:
+		self.set_visible(false)
+		display = false

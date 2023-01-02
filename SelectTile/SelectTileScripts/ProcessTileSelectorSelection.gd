@@ -35,7 +35,6 @@ func TrySelection():
 			CheckBody(Parent.get_overlapping_bodies()[0])
 			if Enemy:
 				UiInfoNode.DisplayInfo(Enemy)
-				ResetSelection()
 
 func CheckBody(body):
 	if Parent.TurnTo == 'Player':
@@ -44,6 +43,7 @@ func CheckBody(body):
 		CheckBodyEnemy(body)
 
 func CheckBodyPlayer(body):
+	Enemy = null
 	if body in Parent.globalFunction.Get_GroupChildren("GroupPlayer"):
 		if Player:
 			if Player == body:
@@ -56,12 +56,15 @@ func CheckBodyPlayer(body):
 		Player = body
 		Player.Set_asTile()
 		Player.Select()
+		UiInfoNode.DisplayInfo(Player)
 	if body in Parent.globalFunction.Get_GroupChildren("GroupEnemy"):
 		if Player:
 			body.Set_asTile()
 		Enemy = body
+		UiInfoNode.DisplayInfo(Enemy)
 
 func CheckBodyEnemy(body):
+	Enemy = null
 	if body in Parent.globalFunction.Get_GroupChildren("GroupEnemy"):
 		if Player:
 			if Player == body:
@@ -74,10 +77,12 @@ func CheckBodyEnemy(body):
 		body.Set_asTile()
 		Player = body
 		Player.Select()
+		UiInfoNode.DisplayInfo(Player)
 	if body in Parent.globalFunction.Get_GroupChildren("GroupPlayer"):
 		if Player:
 			body.Set_asTile()
 		Enemy = body
+		UiInfoNode.DisplayInfo(Enemy)
 
 func PathAndMove(PlayerPosition, SelectPosition):
 	var path = TileMapNode.getPath(PlayerPosition, SelectPosition)
@@ -90,6 +95,8 @@ func PathAndMove(PlayerPosition, SelectPosition):
 		Parent.turnSwitch()
 		taskComplete = true
 	else:
+		ResetObstacle()
+		ResetSelection()
 		print("pathExceed")
 
 func PathAndAttack(PlayerPosition, EnemyPosition):
@@ -120,6 +127,7 @@ func ResetSelection():
 	if Player:
 		Player.UnSelect()
 		Player = null
+	UiInfoNode.UnDisplayInfo()
 
 func ResetObstacle():
 	if Enemy:

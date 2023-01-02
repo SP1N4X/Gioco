@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/—Pngtree—vector right arrow icon_4231911.png-6a3d802512ab53fd9775db29a866fd17.stex"
+path="res://.import/gdb-playstation-2.png-0ab074dacce7e59bd2c8740e0094974e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Controller/—Pngtree—vector right arrow icon_4231911.png"
-dest_files=[ "res://.import/—Pngtree—vector right arrow icon_4231911.png-6a3d802512ab53fd9775db29a866fd17.stex" ]
+source_file="res://Controller/Image/gdb-playstation-2.png"
+dest_files=[ "res://.import/gdb-playstation-2.png-0ab074dacce7e59bd2c8740e0094974e.stex" ]
 
 [params]
 
