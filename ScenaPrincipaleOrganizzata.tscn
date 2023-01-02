@@ -77,7 +77,7 @@ position = Vector2( 176, 48 )
 Health = 1.5
 
 [node name="TileSelector" parent="." instance=ExtResource( 4 )]
-position = Vector2( 112, 64 )
+position = Vector2( 144, 48 )
 
 [node name="WinText" type="Label" parent="."]
 visible = false
@@ -107,3 +107,8 @@ __meta__ = {
 
 [node name="UiInfo" parent="." instance=ExtResource( 3 )]
 visible = false
+
+[node name="Debug" type="Label" parent="."]
+margin_right = 41.0
+margin_bottom = 14.0
+text = "Debug"

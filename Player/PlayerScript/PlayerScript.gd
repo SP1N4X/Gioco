@@ -13,18 +13,16 @@ onready var ProcessMoviment = MovimentPlayer.new(self)
 onready var ProcessAttack = AttackPlayer.new(self)
 onready var ProcessAnimation = PlayerAnimation.new(self)
 onready var globalFunction = GlobalFunction.new(self)
-
-onready var Group
+onready var debug = DebugControl.new(self)
+onready var Group 
 
 func _ready():
-	print("PlayerReady")
-	Group = GlobalFunction.Get_Group(self)
-	if Group == "GroupPlayer":
+	var Groups = get_groups()
+	if "GroupPlayer" in Groups:
 		Set_asPlayer()
-	if Group == "GroupEnemy":
+	if "GroupEnemy" in Groups:
 		Set_asEnemy()
 	Set_asObstacle()
-	print(self, "Ready")
 
 func _process(delta):
 	ProcessMoviment._process(delta)
@@ -48,7 +46,7 @@ func attackMagic(Enemy):
 func dead():
 	ProcessAnimation.animationDead()
 	yield(ProcessAnimation, "Complete")
-	globalFunction.Remove_FromGroup(self, GlobalFunction.Get_Group(self))
+	globalFunction.Remove_FromGroup(self, Group)
 	emit_signal("Complete")
 	Set_asTile()
 	self.queue_free()
@@ -78,9 +76,11 @@ func UnSelect():
 
 func Set_asPlayer():
 	$ColorRect.color = Color.blue
+	Group = "GroupPlayer"
 
 func Set_asEnemy():
 	$ColorRect.color = Color.yellow
+	Group = "GroupEnemy"
 
 func AnimationComplete():
 	ProcessAnimation.emit_signal("Complete")

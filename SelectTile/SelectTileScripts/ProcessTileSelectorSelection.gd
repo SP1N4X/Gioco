@@ -9,6 +9,7 @@ var Player
 var Enemy
 var TileMapNode
 var UiInfoNode
+var debug 
 
 var taskComplete = true
 
@@ -17,10 +18,13 @@ func _init(parent):
 	PrincipalNode = Parent.get_parent()
 	TileMapNode = PrincipalNode.get_node('TileMap')
 	UiInfoNode = PrincipalNode.get_node('UiInfo')
+	debug = DebugControl.new(Parent)
+
 
 func TrySelection():
 	if !taskComplete:
 		return
+	debug.DebugWriteLine("stringa")
 
 	if Player:
 		if Parent.get_overlapping_bodies().size() > 0:

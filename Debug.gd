@@ -3,10 +3,12 @@ extends Node2D
 onready var TileSelector = $TileSelector
 
 var taskComplete = true 
+onready var debug = $Debug
 
-func _input(_event):
+func _input(event):
+	debug.text = debug.text + "\n" + str(event.is_action_pressed("ui_select"))
 	if taskComplete:
-		if Input.is_action_just_pressed("ui_select"):
+		if Input.is_action_pressed("ui_select"):
 			TileSelector.select()
 
 		if Input.is_action_pressed("ui_right"):

@@ -16,10 +16,11 @@ onready var Controller = get_owner().get_node("Controller")
 var TurnTo = 'Player'
 
 func _ready():
-	self.connect("body_entered", self, "_send_onBodyEnteredSignal")
-	self.connect("body_exited", self, "_send_onBodyExitedSignal")
-	self.connect("Body_entered", Controller, "_on_TileSelector_body_entered")
-	self.connect("Body_exited", Controller, "_on_TileSelector_body_exited")
+	var _a = self.connect("body_entered", self, "_send_onBodyEnteredSignal")
+	_a = self.connect("body_exited", self, "_send_onBodyExitedSignal")
+	_a = self.connect("Body_entered", Controller, "_on_TileSelector_body_entered")
+	_a = self.connect("Body_exited", Controller, "_on_TileSelector_body_exited")
+	print(_a)
 	AddException()
 
 func _send_onBodyEnteredSignal(body):
