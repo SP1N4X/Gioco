@@ -19,28 +19,31 @@ func _on_TileSelector_body_exited(sender, _body):
 		setSelectMode()
 
 func setAttackMode():
-	print("setAttackMode()")
-	$AttackButton.visible = true 
+	$Attack1Button.visible = true 
+	$Attack2Button.visible = true 
 	$MoveButton.visible = false
 	$SelectButton.visible = false
-	$AttackButton.action = "ui_select"
+	$Attack1Button.action = "ui_magicAttack"
+	$Attack2Button.action = "ui_staminaAttack"
 	$MoveButton.action = ""
 	$SelectButton.action = ""
 
 func setMoveMode():
-	print("setMoveMode()")
-	$AttackButton.visible = false 
+	$Attack1Button.visible = false 
+	$Attack2Button.visible = false
 	$MoveButton.visible = true
 	$SelectButton.visible = false
-	$AttackButton.action = ""
-	$MoveButton.action = "ui_select"
+	$Attack1Button.action = ""
+	$Attack2Button.action = ""
+	$MoveButton.action = "ui_move"
 	$SelectButton.action = ""
 
 func setSelectMode():
-	print("setSelectMode()")
-	$AttackButton.visible = false 
+	$Attack1Button.visible = false 
+	$Attack2Button.visible = false
 	$MoveButton.visible = false
 	$SelectButton.visible = true
-	$AttackButton.action = ""
+	$Attack1Button.action = ""
+	$Attack2Button.action = ""
 	$MoveButton.action = ""
 	$SelectButton.action = "ui_select"

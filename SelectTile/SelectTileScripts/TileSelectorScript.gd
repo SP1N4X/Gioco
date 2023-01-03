@@ -25,9 +25,11 @@ func _ready():
 
 func _send_onBodyEnteredSignal(body):
 	emit_signal("Body_entered", self, body)
+	ProcessSelection.UiInfoNode.DisplayInfo(body)
 
 func _send_onBodyExitedSignal(body):
 	emit_signal("Body_exited", self, body)
+	ProcessSelection.UiInfoNode.UnDisplayInfo()
 
 func _process(delta):
 	ProcessMoviment._process(delta)
@@ -40,8 +42,8 @@ func move(dir):
 		yield(ProcessMoviment, "Complete")
 		emit_signal('Complete')
 
-func select():
-	ProcessSelection.TrySelection()
+func select(tipe):
+	ProcessSelection.tileInput(tipe)
 
 func turnSwitch():
 	if TurnTo == 'Player':

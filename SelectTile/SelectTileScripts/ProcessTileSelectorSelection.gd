@@ -9,7 +9,6 @@ var Player
 var Enemy
 var TileMapNode
 var UiInfoNode
-var debug 
 
 var taskComplete = true
 
@@ -18,14 +17,25 @@ func _init(parent):
 	PrincipalNode = Parent.get_parent()
 	TileMapNode = PrincipalNode.get_node('TileMap')
 	UiInfoNode = PrincipalNode.get_node('UiInfo')
-	debug = DebugControl.new(Parent)
 
 
-func TrySelection():
+func tileInput(tipe):
 	if !taskComplete:
 		return
-	debug.DebugWriteLine("stringa")
-
+	
+	if tipe == "select":
+		if Parent.get_overlapping_bodies().size() > 0: 
+			CheckBody(Parent.get_overlapping_bodies()[0])
+	elif tipe == "stamina":
+		if Parent.get_overlapping_bodies().size() > 0:
+			 CheckBodyToAttack(Parent.get_overlapping_bodies()[0], tipe)
+	elif tipe == "magic":
+		if Parent.get_overlapping_bodies().size() > 0:
+			 CheckBodyToAttack(Parent.get_overlapping_bodies()[0], tipe)
+	elif tipe == "move":
+		if Player:
+			PathAndMove(Player.position, Parent.position)
+	"""
 	if Player:
 		if Parent.get_overlapping_bodies().size() > 0:
 			CheckBody(Parent.get_overlapping_bodies()[0])
@@ -39,14 +49,56 @@ func TrySelection():
 			CheckBody(Parent.get_overlapping_bodies()[0])
 			if Enemy:
 				UiInfoNode.DisplayInfo(Enemy)
+	"""
+
+func CheckBodyToAttack(body, tipe):
+	if Parent.TurnTo == 'Player':
+		CheckBodyToAttackPlayer(body, tipe)
+	if Parent.TurnTo == 'Enemy':
+		CheckBodyToAttackEnemy(body, tipe)
+
+func CheckBodyToAttackPlayer(body, tipe):
+	if body in Parent.globalFunction.Get_GroupChildren("GroupEnemy"):
+		Enemy = body
+		Enemy.Set_asTile()
+		if tipe == "stamina":
+			PathAndAttack(Player.position, Enemy.position)
+		elif tipe == "magic":
+			StayAndAttack(Player.position, Enemy.position)
+
+func CheckBodyToAttackEnemy(body, tipe):
+	if body in Parent.globalFunction.Get_GroupChildren("GroupPlayer"):
+		Enemy = body
+		Enemy.Set_asTile()
+		if tipe == "stamina":
+			PathAndAttack(Player.position, Enemy.position)
+		elif tipe == "magic":
+			StayAndAttack(Player.position, Enemy.position)
 
 func CheckBody(body):
+	print(body, Parent.TurnTo)
 	if Parent.TurnTo == 'Player':
 		CheckBodyPlayer(body)
 	if Parent.TurnTo == 'Enemy':
 		CheckBodyEnemy(body)
 
 func CheckBodyPlayer(body):
+	if body in Parent.globalFunction.Get_GroupChildren("GroupPlayer"):
+		ResetObstacle()
+		ResetSelection()
+		Player = body
+		Player.Set_asTile()
+		Player.Select()
+
+func CheckBodyEnemy(body):
+	if body in Parent.globalFunction.Get_GroupChildren("GroupEnemy"):
+		ResetObstacle()
+		ResetSelection()
+		Player = body
+		Player.Set_asTile()
+		Player.Select()
+
+func CheckBodyPlayer2(body):
 	Enemy = null
 	if body in Parent.globalFunction.Get_GroupChildren("GroupPlayer"):
 		if Player:
@@ -67,7 +119,7 @@ func CheckBodyPlayer(body):
 		Enemy = body
 		UiInfoNode.DisplayInfo(Enemy)
 
-func CheckBodyEnemy(body):
+func CheckBodyEnemy2(body):
 	Enemy = null
 	if body in Parent.globalFunction.Get_GroupChildren("GroupEnemy"):
 		if Player:
@@ -99,9 +151,7 @@ func PathAndMove(PlayerPosition, SelectPosition):
 		Parent.turnSwitch()
 		taskComplete = true
 	else:
-		ResetObstacle()
-		ResetSelection()
-		print("pathExceed")
+		""" popup allert message (path exceed)"""
 
 func PathAndAttack(PlayerPosition, EnemyPosition):
 	var path = TileMapNode.getPath(PlayerPosition, EnemyPosition)
@@ -113,7 +163,13 @@ func PathAndAttack(PlayerPosition, EnemyPosition):
 		ResetSelection()
 		Parent.turnSwitch()
 		taskComplete = true
-	elif Player.Magic > 0:
+	else:
+		Enemy.Set_asObstacle()
+		Enemy = null
+		""" popup allert message (path exceed)"""
+
+func StayAndAttack(PlayerPosition, EnemyPosition):
+	if Player.Magic > 0:
 		taskComplete = false
 		Player.attackMagic(Enemy)
 		yield(Player, 'Complete')
@@ -131,7 +187,6 @@ func ResetSelection():
 	if Player:
 		Player.UnSelect()
 		Player = null
-	UiInfoNode.UnDisplayInfo()
 
 func ResetObstacle():
 	if Enemy:

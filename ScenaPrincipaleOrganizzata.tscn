@@ -107,8 +107,3 @@ __meta__ = {
 
 [node name="UiInfo" parent="." instance=ExtResource( 3 )]
 visible = false
-
-[node name="Debug" type="Label" parent="."]
-margin_right = 41.0
-margin_bottom = 14.0
-text = "Debug"
