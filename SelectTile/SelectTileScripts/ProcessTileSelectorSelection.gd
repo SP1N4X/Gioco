@@ -64,7 +64,7 @@ func CheckBodyToAttackPlayer(body, tipe, damage):
 		if tipe == "Physic":
 			PathAndAttack(Player.position, Enemy.position, damage)
 		elif tipe == "Magic":
-			StayAndAttack(Player.position, Enemy.position, damage)
+			StayAndAttack(damage)
 
 func CheckBodyToAttackEnemy(body, tipe, damage):
 	if body in Parent.globalFunction.Get_GroupChildren("GroupPlayer"):
@@ -73,17 +73,19 @@ func CheckBodyToAttackEnemy(body, tipe, damage):
 		if tipe == "Physic":
 			PathAndAttack(Player.position, Enemy.position, damage)
 		elif tipe == "Magic":
-			StayAndAttack(Player.position, Enemy.position, damage)
+			StayAndAttack(damage)
 
 func CheckBody(body):
-	print(body, Parent.TurnTo)
 	if Parent.TurnTo == 'Player':
 		CheckBodyPlayer(body)
 	if Parent.TurnTo == 'Enemy':
 		CheckBodyEnemy(body)
 
 func CheckBodyPlayer(body):
-	if body in Parent.globalFunction.Get_GroupChildren("GroupPlayer"):
+	if Player == body:
+		ResetObstacle()
+		ResetSelection()
+	elif body in Parent.globalFunction.Get_GroupChildren("GroupPlayer"):
 		ResetObstacle()
 		ResetSelection()
 		Player = body
@@ -91,7 +93,10 @@ func CheckBodyPlayer(body):
 		Player.Select()
 
 func CheckBodyEnemy(body):
-	if body in Parent.globalFunction.Get_GroupChildren("GroupEnemy"):
+	if Player == body:
+		ResetObstacle()
+		ResetSelection()
+	elif body in Parent.globalFunction.Get_GroupChildren("GroupEnemy"):
 		ResetObstacle()
 		ResetSelection()
 		Player = body
@@ -168,7 +173,7 @@ func PathAndAttack(PlayerPosition, EnemyPosition, damage):
 		Enemy = null
 		""" popup allert message (path exceed)"""
 
-func StayAndAttack(PlayerPosition, EnemyPosition, damage):
+func StayAndAttack(damage):
 	if Player.Magic > 0:
 		taskComplete = false
 		Player.attackMagic(Enemy, damage)

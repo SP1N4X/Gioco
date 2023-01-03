@@ -12,6 +12,7 @@ onready var Ray = $RayCast2D
 onready var Text = get_owner().get_node("WinText")
 onready var TurnToLabel = get_owner().get_node("TurnTo")
 onready var Controller = get_owner().get_node("Controller")
+onready var tileMap = get_owner().get_node("TileMap")
 
 var TurnTo = 'Player'
 
@@ -29,6 +30,8 @@ func _send_onBodyEnteredSignal(body):
 
 func _send_onBodyExitedSignal(body):
 	emit_signal("Body_exited", self, body)
+	if get_overlapping_bodies().size() > 0:
+		return 
 	ProcessSelection.UiInfoNode.UnDisplayInfo()
 
 func _process(delta):
@@ -40,6 +43,10 @@ func move(dir):
 	else:
 		ProcessMoviment.MoveTo(dir)
 		yield(ProcessMoviment, "Complete")
+		if ProcessSelection.Player:
+			var path = tileMap.getPath(ProcessSelection.Player.position, position)
+			if path.size() > 0:
+				Controller.setStaminaToUse(path.size())
 		emit_signal('Complete')
 
 func select(tipe):

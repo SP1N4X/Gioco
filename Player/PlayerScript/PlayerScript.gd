@@ -24,8 +24,6 @@ onready var ProcessMoviment = MovimentPlayer.new(self)
 onready var ProcessAttack = AttackPlayer.new(self)
 onready var ProcessAnimation = PlayerAnimation.new(self)
 onready var globalFunction = GlobalFunction.new(self)
-onready var playerAttackInfo = playerAttackInfo
-onready var debug = DebugControl.new(self)
 onready var Group 
 
 func _ready():

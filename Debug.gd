@@ -4,7 +4,7 @@ onready var TileSelector = $TileSelector
 
 var taskComplete = true 
 
-func _input(event):
+func _input(_event):
 	if taskComplete:
 		if Input.is_action_pressed("ui_select"):
 			TileSelector.select("select")
