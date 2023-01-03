@@ -23,8 +23,8 @@ func setAttackMode():
 	$Attack2Button.visible = true 
 	$MoveButton.visible = false
 	$SelectButton.visible = false
-	$Attack1Button.action = "ui_magicAttack"
-	$Attack2Button.action = "ui_staminaAttack"
+	$Attack1Button.action = "ui_attack1"
+	$Attack2Button.action = "ui_attack2"
 	$MoveButton.action = ""
 	$SelectButton.action = ""
 

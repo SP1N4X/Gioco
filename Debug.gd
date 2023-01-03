@@ -8,13 +8,13 @@ func _input(event):
 	if taskComplete:
 		if Input.is_action_pressed("ui_select"):
 			TileSelector.select("select")
-		
-		if Input.is_action_pressed("ui_magicAttack"):
-			TileSelector.select("magic")
-		if Input.is_action_pressed("ui_staminaAttack"):
-			TileSelector.select("stamina")
 		if Input.is_action_pressed("ui_move"):
 			TileSelector.select("move")
+		
+		if Input.is_action_pressed("ui_attack1"):
+			TileSelector.select("attack1")
+		if Input.is_action_pressed("ui_attack2"):
+			TileSelector.select("attack2")
 
 		if Input.is_action_pressed("ui_right"):
 			taskComplete = false

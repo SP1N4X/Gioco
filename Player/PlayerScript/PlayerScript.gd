@@ -6,6 +6,17 @@ export var Health : float = 3
 export var Strength : float = 1
 export var Stamina : float = 4
 export var Magic : float = 1
+export var attack = {	"attack1":
+							{	
+								"Tipe": "Magic", 
+								"Damage": 2
+							},
+						"attack2":
+							{	
+								"Tipe": "Physic", 
+								"Damage": 1
+							}
+					}
 
 onready var TileMapNode = get_owner().get_node("TileMap")
 
@@ -13,6 +24,7 @@ onready var ProcessMoviment = MovimentPlayer.new(self)
 onready var ProcessAttack = AttackPlayer.new(self)
 onready var ProcessAnimation = PlayerAnimation.new(self)
 onready var globalFunction = GlobalFunction.new(self)
+onready var playerAttackInfo = playerAttackInfo
 onready var debug = DebugControl.new(self)
 onready var Group 
 
@@ -32,14 +44,14 @@ func move(pathArray):
 	yield(ProcessMoviment, "Complete")
 	emit_signal('Complete')
 
-func attackStamina(pathArray, Enemy):
-	ProcessAttack.StaminaAttackTo(pathArray, Strength, Enemy)
+func attackStamina(pathArray, Enemy, damage):
+	ProcessAttack.StaminaAttackTo(pathArray, damage, Enemy)
 	yield(ProcessAttack, "Complete")
 	emit_signal('Complete')
 
-func attackMagic(Enemy):
+func attackMagic(Enemy, damage):
 	Magic -= 1
-	ProcessAttack.MagicAttackTo(Strength, Enemy)
+	ProcessAttack.MagicAttackTo(damage, Enemy)
 	yield(ProcessAttack, "Complete")
 	emit_signal('Complete')
 
