@@ -54,6 +54,7 @@ func attackMagic(Enemy, damage):
 	emit_signal('Complete')
 
 func dead():
+	$CollisionShape2D.disabled = true
 	ProcessAnimation.animationDead()
 	yield(ProcessAnimation, "Complete")
 	globalFunction.Remove_FromGroup(self, Group)

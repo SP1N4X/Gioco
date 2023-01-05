@@ -26,8 +26,8 @@ func animationAttack(enemyPosition, Position):
 
 func animationMagicAttack(enemyPosition, Position):
 	var dir = (enemyPosition - Position)/16
-	animationTree.set("parameters/Attack/blend_position", dir)
-	animationMode.travel('Attack')
+	animationTree.set("parameters/AttackMagic/blend_position", dir)
+	animationMode.travel('AttackMagic')
 	var node = flameSpirte.instance()
 	node.position = enemyPosition
 	Parent.get_owner().add_child(node)

@@ -74,7 +74,7 @@ func turnSwitch():
 			Text.text = '!!Enemy WIN!!'
 			Text.visible = true
 			Controller.setSelectMode()
-	ProcessSelection.UiInfoNode.RefreshDisplayInfo()
+	ProcessSelection.UiInfoNode.RefreshDisplayInfo(get_overlapping_bodies())
 
 func ValidDir(dir):
 	Ray.cast_to = dir * 16

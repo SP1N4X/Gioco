@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://Player/Image/SelectedTile.png" type="Texture" id=1]
 [ext_resource path="res://Player/Image/player.png" type="Texture" id=2]
@@ -10,6 +10,80 @@ extents = Vector2( 2.5, 2.5 )
 
 [sub_resource type="Animation" id=18]
 resource_name = "AttackDown"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("BattleLegendRedGen4OverworldSpritesByScizorbytesDf66D0v:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 36, 37, 38, 39 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "AnimationComplete"
+} ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "AttackLeft"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("BattleLegendRedGen4OverworldSpritesByScizorbytesDf66D0v:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 42, 43, 44, 45 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BattleLegendRedGen4OverworldSpritesByScizorbytesDf66D0v:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "AnimationComplete"
+} ]
+}
+
+[sub_resource type="Animation" id=51]
+resource_name = "AttackMagicDown"
 length = 1.4
 loop = true
 tracks/0/type = "value"
@@ -39,8 +113,8 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=19]
-resource_name = "AttackLeft"
+[sub_resource type="Animation" id=52]
+resource_name = "AttackMagicLeft"
 length = 1.4
 loop = true
 tracks/0/type = "value"
@@ -82,8 +156,8 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=20]
-resource_name = "AttackRight"
+[sub_resource type="Animation" id=53]
+resource_name = "AttackMagicRight"
 length = 1.4
 loop = true
 tracks/0/type = "value"
@@ -125,8 +199,8 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=21]
-resource_name = "AttackUp"
+[sub_resource type="Animation" id=54]
+resource_name = "AttackMagicUp"
 length = 1.4
 loop = true
 tracks/0/type = "value"
@@ -149,6 +223,80 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 1.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "AnimationComplete"
+} ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "AttackRight"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("BattleLegendRedGen4OverworldSpritesByScizorbytesDf66D0v:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 42, 43, 44, 45 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BattleLegendRedGen4OverworldSpritesByScizorbytesDf66D0v:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "AnimationComplete"
+} ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "AttackUp"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("BattleLegendRedGen4OverworldSpritesByScizorbytesDf66D0v:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 12, 48, 49, 50, 51 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.6 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -350,6 +498,28 @@ blend_point_3/node = SubResource( 31 )
 blend_point_3/pos = Vector2( 1, 0 )
 blend_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id=55]
+animation = "AttackMagicLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=56]
+animation = "AttackMagicRight"
+
+[sub_resource type="AnimationNodeAnimation" id=57]
+animation = "AttackMagicUp"
+
+[sub_resource type="AnimationNodeAnimation" id=58]
+animation = "AttackMagicDown"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=59]
+blend_point_0/node = SubResource( 55 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 56 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 57 )
+blend_point_2/pos = Vector2( 0, -1 )
+blend_point_3/node = SubResource( 58 )
+blend_point_3/pos = Vector2( 0, 1 )
+
 [sub_resource type="AnimationNodeAnimation" id=48]
 animation = "Damage"
 
@@ -405,9 +575,17 @@ auto_advance = true
 switch_mode = 2
 auto_advance = true
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=60]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=61]
+switch_mode = 2
+auto_advance = true
+
 [sub_resource type="AnimationNodeStateMachine" id=16]
 states/Attack/node = SubResource( 32 )
-states/Attack/position = Vector2( 316.333, 207 )
+states/Attack/position = Vector2( 192.333, 217.667 )
+states/AttackMagic/node = SubResource( 59 )
+states/AttackMagic/position = Vector2( 359.508, 221.194 )
 states/Damage/node = SubResource( 48 )
 states/Damage/position = Vector2( 311.508, 48.3333 )
 states/Dead/node = SubResource( 44 )
@@ -416,9 +594,9 @@ states/Idle/node = SubResource( 33 )
 states/Idle/position = Vector2( 307, 129.37 )
 states/Walk/node = SubResource( 38 )
 states/Walk/position = Vector2( 485.667, 131 )
-transitions = [ "Idle", "Walk", SubResource( 39 ), "Walk", "Idle", SubResource( 40 ), "Attack", "Idle", SubResource( 41 ), "Idle", "Attack", SubResource( 42 ), "Idle", "Dead", SubResource( 45 ), "Dead", "Idle", SubResource( 46 ), "Idle", "Damage", SubResource( 49 ), "Damage", "Idle", SubResource( 50 ) ]
+transitions = [ "Idle", "Walk", SubResource( 39 ), "Walk", "Idle", SubResource( 40 ), "Attack", "Idle", SubResource( 41 ), "Idle", "Attack", SubResource( 42 ), "Idle", "Dead", SubResource( 45 ), "Dead", "Idle", SubResource( 46 ), "Idle", "Damage", SubResource( 49 ), "Damage", "Idle", SubResource( 50 ), "Idle", "AttackMagic", SubResource( 60 ), "AttackMagic", "Idle", SubResource( 61 ) ]
 start_node = "Idle"
-graph_offset = Vector2( -128.825, 0 )
+graph_offset = Vector2( -128.825, 58.1939 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=17]
 
@@ -454,6 +632,10 @@ frame = 1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/AttackDown = SubResource( 18 )
 anims/AttackLeft = SubResource( 19 )
+anims/AttackMagicDown = SubResource( 51 )
+anims/AttackMagicLeft = SubResource( 52 )
+anims/AttackMagicRight = SubResource( 53 )
+anims/AttackMagicUp = SubResource( 54 )
 anims/AttackRight = SubResource( 20 )
 anims/AttackUp = SubResource( 21 )
 anims/Damage = SubResource( 47 )
@@ -471,6 +653,7 @@ active = true
 root_motion_track = NodePath("BattleLegendRedGen4OverworldSpritesByScizorbytesDf66D0v:frame")
 parameters/playback = SubResource( 17 )
 parameters/Attack/blend_position = Vector2( 0.00867057, 0.0144508 )
+parameters/AttackMagic/blend_position = Vector2( 0, 0 )
 parameters/Walk/blend_position = Vector2( 0.00173414, 0.99711 )
 
 [node name="HeartIcon" parent="." instance=ExtResource( 4 )]
