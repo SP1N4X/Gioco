@@ -10,7 +10,7 @@ extents = Vector2( 2.5, 2.5 )
 
 [sub_resource type="Animation" id=18]
 resource_name = "AttackDown"
-length = 0.6
+length = 1.4
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("BattleLegendRedGen4OverworldSpritesByScizorbytesDf66D0v:frame")
@@ -31,7 +31,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.6 ),
+"times": PoolRealArray( 1.4 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -41,7 +41,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=19]
 resource_name = "AttackLeft"
-length = 0.6
+length = 1.4
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("BattleLegendRedGen4OverworldSpritesByScizorbytesDf66D0v:frame")
@@ -74,7 +74,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.6 ),
+"times": PoolRealArray( 1.4 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -84,7 +84,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=20]
 resource_name = "AttackRight"
-length = 0.6
+length = 1.4
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("BattleLegendRedGen4OverworldSpritesByScizorbytesDf66D0v:frame")
@@ -117,7 +117,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.6 ),
+"times": PoolRealArray( 1.4 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -127,7 +127,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=21]
 resource_name = "AttackUp"
-length = 0.6
+length = 1.4
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("BattleLegendRedGen4OverworldSpritesByScizorbytesDf66D0v:frame")
@@ -148,7 +148,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.6 ),
+"times": PoolRealArray( 1.4 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -446,9 +446,10 @@ frame = 1
 position = Vector2( 8, -4.15 )
 scale = Vector2( 0.833333, 0.827083 )
 texture = ExtResource( 2 )
+flip_h = true
 hframes = 6
 vframes = 10
-frame = 2
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/AttackDown = SubResource( 18 )

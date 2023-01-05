@@ -32,7 +32,10 @@ func _send_onBodyExitedSignal(body):
 	emit_signal("Body_exited", self, body)
 	if get_overlapping_bodies().size() > 0:
 		return 
-	ProcessSelection.UiInfoNode.UnDisplayInfo()
+	if ProcessSelection.Player:
+		ProcessSelection.UiInfoNode.DisplayInfo(ProcessSelection.Player)
+	else:
+		ProcessSelection.UiInfoNode.UnDisplayInfo()
 
 func _process(delta):
 	ProcessMoviment._process(delta)
@@ -41,12 +44,12 @@ func move(dir):
 	if !ValidDir(dir):
 		emit_signal('Complete')
 	else:
-		ProcessMoviment.MoveTo(dir)
-		yield(ProcessMoviment, "Complete")
 		if ProcessSelection.Player:
-			var path = tileMap.getPath(ProcessSelection.Player.position, position)
+			var path = tileMap.getPath(ProcessSelection.Player.position, position + dir * 16)
 			if path.size() > 0:
 				Controller.setStaminaToUse(path.size())
+		ProcessMoviment.MoveTo(dir)
+		yield(ProcessMoviment, "Complete")
 		emit_signal('Complete')
 
 func select(tipe):
@@ -71,6 +74,7 @@ func turnSwitch():
 			Text.text = '!!Enemy WIN!!'
 			Text.visible = true
 			Controller.setSelectMode()
+	ProcessSelection.UiInfoNode.RefreshDisplayInfo()
 
 func ValidDir(dir):
 	Ray.cast_to = dir * 16

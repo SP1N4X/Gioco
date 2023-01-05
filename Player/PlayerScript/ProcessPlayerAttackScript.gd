@@ -19,7 +19,7 @@ func StaminaAttackTo(pathArray, Strength, Enemy):
 	emit_signal("Complete")
 
 func MagicAttackTo(Strength, Enemy):
-	Parent.ProcessAnimation.animationAttack(Enemy.position, Parent.position)
+	Parent.ProcessAnimation.animationMagicAttack(Enemy.position, Parent.position)
 	yield(Parent.ProcessAnimation, "Complete")
 	Enemy.call_deferred("CalDamage", Strength)
 	yield(Enemy, "Complete")

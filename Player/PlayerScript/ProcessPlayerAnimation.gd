@@ -9,6 +9,7 @@ var animationTree : AnimationTree
 var animationMode 
 var animationPlayer : AnimationPlayer
 var animationHealth
+var flameSpirte = load("res://Player/Image/AttackAnimation/FlameSprite.tscn")
 
 func _init(parent):
 	Parent = parent
@@ -22,6 +23,14 @@ func animationAttack(enemyPosition, Position):
 	var dir = (enemyPosition - Position)/16
 	animationTree.set("parameters/Attack/blend_position", dir)
 	animationMode.travel('Attack')
+
+func animationMagicAttack(enemyPosition, Position):
+	var dir = (enemyPosition - Position)/16
+	animationTree.set("parameters/Attack/blend_position", dir)
+	animationMode.travel('Attack')
+	var node = flameSpirte.instance()
+	node.position = enemyPosition
+	Parent.get_owner().add_child(node)
 
 func animationWalk(dir):
 	animationTree.set("parameters/Walk/blend_position", dir)

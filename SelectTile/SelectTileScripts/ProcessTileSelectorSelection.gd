@@ -31,21 +31,6 @@ func tileInput(tipe):
 			PathAndMove(Player.position, Parent.position)
 	else:
 		TypeAttack(Player.attack[tipe])
-	"""
-	if Player:
-		if Parent.get_overlapping_bodies().size() > 0:
-			CheckBody(Parent.get_overlapping_bodies()[0])
-			if Enemy:
-				PathAndAttack(Player.position, Enemy.position)
-		else:
-			PathAndMove(Player.position, Parent.position)
-
-	else:
-		if Parent.get_overlapping_bodies().size() > 0:
-			CheckBody(Parent.get_overlapping_bodies()[0])
-			if Enemy:
-				UiInfoNode.DisplayInfo(Enemy)
-	"""
 
 func TypeAttack(attack):
 	if Parent.get_overlapping_bodies().size() > 0:
@@ -150,9 +135,10 @@ func PathAndMove(PlayerPosition, SelectPosition):
 	if path.size() <= Player.Stamina and path.size() != 0:
 		taskComplete = false
 		Player.move(path)
-		yield(Player, 'Complete')
-		ResetObstacle()
+		var player = Player
+		yield(player, 'Complete')
 		ResetSelection()
+		ResetObstacle()
 		Parent.turnSwitch()
 		taskComplete = true
 	else:
